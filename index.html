@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+
+<body class="bg-[#F3F4F6] pb-52g">
+
+  <main class="">
+    <!-- Phone design -->
+    <section class="flex justify-center ">
+      <div class="camera"></div>
+      <div class="display mt-7 mb-9">
+        <div class="artboard artboard-demo phone-15 py-10 px-10 shadow bg-[#FFFFFF]">
+          <!-- start the phone inner design -->
+          <h1
+            class=" from-primary bg-clip-text text-transparent font-bold  bg-gradient-to-r from-[#3188eb] to-[#9035EA] text-2xl">
+            💻Programmer Expenses Assistant</h1>
+          <div class="mt-6">
+            <button
+              class="bg-gradient-to-r from-[#3188eb] to-[#9035EA] text-white py-2 px-16 rounded text-lg font-semibold">Assistant</button>
+            <button
+              class="bg-gradient-to-r from-[#3188eb] to-[#9035EA] text-white py-2 px-16 rounded text-lg font-semibold">History</button>
+          </div>
+          <!-- input  -->
+          <label  class=" mt-8 mr-[299px] font-semibold ">Income <span>💰</span></label>
+          <input id="input-income" placeholder="Enter income" class="border left-2 pl-2 mt-2  border-gray-300 rounded-md w-[95%] py-2"
+            type="text">
+          <div class="flex w-[50%] justify-center gap-3">
+            <div class="">
+              <label class=" mt-8 block font-semibold ">Software<span>💻</span></label>
+              <input id="input-software" placeholder="Software cost" class="border left-2 pl-2 mt-2  border-gray-300 rounded-md py-2"
+                type="text">
+            </div>
+            <div class="">
+              <label class=" block mt-8  font-semibold ">Courses<span>📚</span></label>
+              <input id="input-courses" placeholder="Courses cost" class="border left-2 pl-2 mt-2  border-gray-300 rounded-md  py-2"
+                type="text">
+            </div>
+          </div>
+          <label class=" mt-8 mr-[300px] font-semibold ">Internet 🌐</label>
+          <input id="input-internet" placeholder="Enter income" class="border left-2 pl-2 mt-2  border-gray-300 rounded-md w-[95%] py-2"
+            type="text">
+
+          <!-- input submit button -->
+          <button id="input-submit-button"
+            class="bg-gradient-to-r from-[#3188eb] to-[#9035EA] text-white py-2  rounded text-lg font-semibold w-[95%] mt-8">
+            Calculate
+          </button>
+
+          <label class=" mt-8 mr-[260px] font-semibold ">Savings (%) 💸<span></span></label>
+          <input id="savings-input" placeholder="Enter income" class="border left-2 pl-2 mt-2  border-gray-300 rounded-md w-[95%] py-2"
+            type="text">
+
+          <!-- Calculate Savings -->
+          <button id="calculate-savings"
+            class="bg-gradient-to-r from-[#1cc55d] to-[#11b1a1] text-white py-2  rounded text-lg font-semibold w-[95%] mt-8">
+            Calculate Savings
+          </button>
+
+
+
+
+          <!-- Result Summary -->
+          <div id="result-summary" class="border-gray-200 border-2  rounded-md p-4 mt-4 hidden">
+            <h2
+              class=" text-center mt-2 text-xl from-primary bg-clip-text text-transparent font-bold  bg-gradient-to-r from-[#3188eb] to-[#9035EA]">
+              Results Summary</h2>
+            <div class="space-y-10 mt-7">
+
+              <div class="flex gap-40 w-full">
+                <div class=" px-5 py-2   border-4 border-r-0 border-t-0 border-b-0 rounded-lg border-blue-800">
+                  <h3 class="text-gray-600 font-medium text-lg">Total Expenses</h3>
+                  <p class="font-semibold mt-2">$<span id="total-expenses">0</span></p>
+                </div>
+
+                <div class=" px-5 py-2   border-4 border-r-0 border-t-0 border-b-0 rounded-lg border-violet-600">
+                  <h3 class="text-gray-600 font-medium text-lg">Balance</h3>
+                  <p class="font-semibold mt-2">$<span id="balance">0</span></p>
+                </div>
+              </div>
+
+              <div class="flex gap-40 w-full">
+                <div class=" px-5 py-2   border-4 border-r-0 border-t-0 border-b-0 rounded-lg border-green-500">
+                  <h3 class="text-gray-600 font-medium text-lg">Savings Amount</h3>
+                  <p class="font-semibold mt-2">$<span id="savings">0</span></p>
+                </div>
+
+                <div class=" px-5 py-2   border-4 border-r-0 border-t-0 border-b-0 rounded-lg border-yellow-400">
+                  <h3 class="text-gray-600 font-medium text-lg">Remaining Amount</h3>
+                  <p class="font-semibold mt-2">$<span id="remaining-amount">0</span></p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+
+          <!-- Result Summary -->
+          <div class="border-gray-200 border-2  rounded-md p-4 mt-4 hidden">
+            <h2
+              class=" text-center mt-2 text-xl from-primary bg-clip-text text-transparent font-bold  bg-gradient-to-r from-[#3188eb] to-[#9035EA]">
+              Expenses History</h2>
+            <div class="space-y-10 mt-7">
+
+              <!-- <div class="flex gap-40 w-full">
+                        <div class=" px-5 py-2   border-4 border-r-0 border-t-0 border-b-0 rounded-lg border-blue-800">
+                          <h3 class="text-gray-600 font-medium text-lg">Total Expenses</h3>
+                          <p class="font-semibold mt-2">$<span>300.00</span></p>
+                        </div>
+          
+                        <div class=" px-5 py-2   border-4 border-r-0 border-t-0 border-b-0 rounded-lg border-violet-600">
+                          <h3 class="text-gray-600 font-medium text-lg">Total Expenses</h3>
+                          <p class="font-semibold mt-2">$<span>300.00</span></p>
+                        </div>
+                      </div>
+          
+                      <div class="flex gap-40 w-full">
+                        <div class=" px-5 py-2   border-4 border-r-0 border-t-0 border-b-0 rounded-lg border-green-500">
+                          <h3 class="text-gray-600 font-medium text-lg">Total Expenses</h3>
+                          <p class="font-semibold mt-2">$<span>300.00</span></p>
+                        </div>
+          
+                        <div class=" px-5 py-2   border-4 border-r-0 border-t-0 border-b-0 rounded-lg border-yellow-400">
+                          <h3 class="text-gray-600 font-medium text-lg">Total Expenses</h3>
+                          <p class="font-semibold mt-2">$<span>300.00</span></p>
+                        </div>
+                      </div> -->
+
+            </div>
+
+          </div>
+
+
+
+
+
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+
+  <script src="./app/app.js"></script>
+</body>
+
+</html>
